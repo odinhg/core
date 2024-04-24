@@ -3,8 +3,6 @@ import numpy as np
 from miniball import Miniball
 from scipy.spatial import KDTree
 from itertools import combinations
-from math import sqrt
-from typing import Union
 
 # Compute distances to k-nearest neighbors in X
 def k_nearest_neighbor_distances(X, k):
