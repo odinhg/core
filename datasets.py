@@ -1,15 +1,15 @@
 import numpy as np
+from typing import Tuple
 
 
 def sample_circle(
     n: int,
     generator: np.random.Generator,
     r: float = 1.0,
-    center: tuple[float] = (0.0, 0.0),
+    center: Tuple[float, float] = (0.0, 0.0),
     variance: float = 0.0,
 ) -> np.ndarray:
-    # t = generator.uniform(0, 2 * np.pi, n)
-    t = np.linspace(0, 2 * np.pi, n, endpoint=False)
+    t = generator.uniform(0, 2 * np.pi, n)
     X = r * np.c_[np.cos(t), np.sin(t)]
     if variance > 0.0:
         X += generator.normal(loc=0.0, scale=np.sqrt(variance), size=(n, 2))
@@ -19,8 +19,8 @@ def sample_circle(
 def sample_rectangle(
     n: int,
     generator: np.random.Generator,
-    lower_left_corner: tuple[float] = (-1, -1),
-    upper_right_corner: tuple[float] = (1, 1),
+    lower_left_corner: Tuple[float, float] = (-1, -1),
+    upper_right_corner: Tuple[float, float] = (1, 1),
 ) -> np.ndarray:
     x1, y1 = lower_left_corner
     x2, y2 = upper_right_corner
@@ -48,8 +48,8 @@ def sample_torus(
 def sample_cube(
     n: int,
     generator: np.random.Generator,
-    lower_left_corner: tuple[float] = (-1, -1, -1),
-    upper_right_corner: tuple[float] = (1, 1, 1),
+    lower_left_corner: Tuple[float, float, float] = (-1, -1, -1),
+    upper_right_corner: Tuple[float, float, float] = (1, 1, 1),
 ) -> np.ndarray:
     x1, y1, z1 = lower_left_corner
     x2, y2, z2 = upper_right_corner

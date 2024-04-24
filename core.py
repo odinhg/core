@@ -4,13 +4,14 @@ from miniball import Miniball
 from scipy.spatial import KDTree
 from itertools import combinations
 from math import sqrt
+from typing import Union
 
 
 def core_cech(
     points: np.ndarray,
     k: int,
     max_dim: int = 1,
-    max_r: float | None = None,
+    max_r: Union[float, None] = None,
     return_squared: bool = False,
 ) -> gudhi.SimplexTree:
     """
@@ -54,7 +55,10 @@ def core_cech(
 
 
 def alpha_core(
-    points: np.ndarray, k: int, max_r: float | None = None, return_squared: bool = False
+    points: np.ndarray,
+    k: int,
+    max_r: Union[float, None] = None,
+    return_squared: bool = False,
 ) -> gudhi.SimplexTree:
     """
     Compute the alpha-core filtration for a fixed k if max_r is None. Otherwise, compute the filtration along the line passing through (0, k) and (max_r, 0).
