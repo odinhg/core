@@ -78,7 +78,7 @@ def alpha_core(X, max_k=10, max_r=None, precision='safe'):
     st = gudhi.AlphaComplex(points=X, precision=precision).create_simplex_tree()
     return core_complex(X, st, max_k, max_r)
 
-def plot_sqrt_persistence(st, axes):
+def plot_sqrt_persistence(st, **kwargs):
     persistence = st.persistence()
     persistence = [(dim, (birth**.5, death**.5)) for dim, (birth, death) in persistence]
-    return gudhi.plot_persistence_diagram(persistence, axes=axes)
+    return gudhi.plot_persistence_diagram(persistence, **kwargs)
