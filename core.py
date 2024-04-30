@@ -27,15 +27,13 @@ def vertex_values(X, max_k, max_r):
     Compute core value for each points
     """
     if max_r is None or max_k <= 1:
+        # Fixed k
         return k_nearest_neighbor_distances(X, k=[max_k])
     k_core_distances = k_nearest_neighbor_distances(X, np.arange(1, max_k + 1))
     line = np.linspace(max_r, 0, num=max_k)
-    if max_k > 1:
-        indices = np.argmax(line <= k_core_distances, axis=1)
-        values = k_core_distances[np.arange(len(k_core_distances)), indices]
-        values[values > max_r] = max_r
-    else:
-        values = np.array(k_core_distances)
+    indices = np.argmax(line <= k_core_distances, axis=1)
+    values = k_core_distances[np.arange(len(k_core_distances)), indices]
+    values[values > max_r] = max_r
     return values
 
 
