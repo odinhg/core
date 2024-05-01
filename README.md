@@ -4,6 +4,8 @@ This repository contains an implementation of alpha-core and core Čech persiste
 
 ## Get Started
 
+Install dependencies by running `pip install -r requirements.txt` if needed.
+
 Run the notebook `example_usage.ipynb` for an demonstration of the application of core Čech and alpha-core persistent homology to noisy point clouds. This notebook contains examples for computing persistence along a line and for a fixed $k$.
 
 To reproduce the experiments presented in the paper, run the notebook `run_experiments.ipynb`.
