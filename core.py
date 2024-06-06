@@ -37,11 +37,11 @@ def vertex_values(X, max_k, max_r):
     return values
 
 
-def core_complex(X, st, max_k, max_r=None):
+def core_complex(X, st, max_k, max_r=None, beta=1):
     """
     Compute core simplex tree from a simplex tree filtered by squared radius and a point cloud.
     """
-    k_core_distances = vertex_values(X, max_k, max_r) ** 2
+    k_core_distances = beta * vertex_values(X, max_k, max_r) ** 2
     for vertex in range(X.shape[0]):
         st.assign_filtration([vertex], k_core_distances[vertex])
     st.make_filtration_non_decreasing()
@@ -60,7 +60,7 @@ def cech_squared_radius(X, max_dim=1):
     return st
 
 
-def core_cech(X, max_k=10, max_r=None, max_dim=1):
+def core_cech(X, max_k=10, max_r=None, max_dim=1, beta=1):
     """
     Compute the core Čech filtration for a fixed k if max_r is None. Otherwise, compute the filtration along the line passing through (0, k) and (max_r, 0).
 
@@ -73,10 +73,10 @@ def core_cech(X, max_k=10, max_r=None, max_dim=1):
         The core Čech filtration as a simplex tree.
     """
     st = cech_squared_radius(X, max_dim=max_dim)
-    return core_complex(X, st, max_k, max_r)
+    return core_complex(X, st, max_k, max_r, beta)
 
 
-def core_alpha(X, max_k=10, max_r=None, precision="safe"):
+def core_alpha(X, max_k=10, max_r=None, beta=1, precision="safe"):
     """
     Compute the alpha-core filtration for a fixed k if max_r is None. Otherwise, compute the filtration along the line passing through (0, k) and (max_r, 0).
 
@@ -89,7 +89,7 @@ def core_alpha(X, max_k=10, max_r=None, precision="safe"):
         The alpha-core filtration as a simplex tree.
     """
     st = gudhi.AlphaComplex(points=X, precision=precision).create_simplex_tree()
-    return core_complex(X, st, max_k, max_r)
+    return core_complex(X, st, max_k, max_r, beta)
 
 def sqrt_persistence(st):
     """
