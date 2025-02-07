@@ -1,6 +1,8 @@
 # Core Bifiltration [[arXiv](https://arxiv.org/abs/2405.01214)]
 
-This repository contains an implementation of alpha-core and core Čech persistent homology, together with Jupyter notebooks demonstrating its application to noisy point cloud data.
+This repository contains an implementation of Delaunay core (also known as alpha-core) and core Čech persistent homology, together with Jupyter notebooks demonstrating its application to noisy point cloud data.
+
+**Update February 2025:** The Delaunay core bifiltration is now part of the [`multipers`](https://github.com/DavidLapous/multipers) library. The implementation in `multipers` computes the entire bifiltration in contrast to this implementation which only computes persistence along a line (slice).
 
 ## Get Started
 
