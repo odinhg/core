@@ -16,3 +16,6 @@ To reproduce the experiments presented in the paper with $\beta=1$, run the note
 
 The code for constructing the filtered nerves is contained in `core.py`. The functions `core_cech` and `core_alpha` returns a simplex tree (a `gudhi.SimplexTree` instance) representing the core Čech and alpha-core filtered nerves, respectively. Different point cloud dataset generators used in the notebooks can be found in `datasets.py`.
 
+## Multipersistence Plots
+
+To reproduce the multipersistence module approximation plots from the paper, run the notebook `multipersistence_plots.ipynb`. This notebook requires [`multipers`](https://github.com/DavidLapous/multipers), [`function_delaunay`](https://bitbucket.org/mkerber/function_delaunay) and [`mpfree`](https://bitbucket.org/mkerber/mpfree).
