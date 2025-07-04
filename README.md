@@ -19,3 +19,11 @@ The code for constructing the filtered nerves is contained in `core.py`. The fun
 ## Multipersistence Plots
 
 To reproduce the multipersistence module approximation plots from the paper, run the notebook `multipersistence_plots.ipynb`. This notebook requires [`multipers`](https://github.com/DavidLapous/multipers), [`function_delaunay`](https://bitbucket.org/mkerber/function_delaunay) and [`mpfree`](https://bitbucket.org/mkerber/mpfree).
+
+**Installing external dependencies using Anaconda:**
+
+1. Create a new conda environment with Python 13.
+2. Install `multipers` in the environment.
+3. With the environment activated, run `install_external_libraries.sh` to compile and install `mpfree` and `function_delaunay` into your environment.
+
+You might need to install `shapely` and `pykeops` too.
