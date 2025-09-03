@@ -27,3 +27,7 @@ To reproduce the multipersistence module approximation and Hilbert function plot
 3. In the environment, run `./install_external_libraries.sh` to compile and install `mpfree` and `function_delaunay` into your environment.
 
 You might want to install the Python packages `shapely` and `pykeops` too.
+
+## Comparing to the multicover bifiltration
+
+For running size benchmarks and comparing Hilbert functions of the rhomboid tiling bifiltration (equivalent to the multicover bifiltration) and the Delaunay core bifiltration, see the repository [odinhg/multipersistence_nix](https://github.com/odinhg/multipersistence_nix).
